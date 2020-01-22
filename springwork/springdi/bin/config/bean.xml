@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- <bean id="tv" class="dl.exam01.SamsungTV"></bean> -->
+	<bean id="tv" class="dl.exam01.LgTV"/>
+	
+	<bean id="mydao" class="di.constructor.basic.MemberDAO"/> <!-- 기본생성자밖에 없을경우 -->
+	<bean id="insa" class="di.constructor.basic.InsaImpl">
+		<constructor-arg ref="mydao"/> <!-- 하나가 매개변수 1개 -->
+	</bean>
+	
+	<bean id="dice" class="di.constructor01.Dice"/>
+	<bean id="player" class="di.constructor01.Player">
+		<constructor-arg ref="dice"/>
+	</bean>
+	
+</beans>
